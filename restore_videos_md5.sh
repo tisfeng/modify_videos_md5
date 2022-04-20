@@ -24,9 +24,7 @@ function delete_last_string_from_file() {
             # 判断文件最后一行是否以"#1024"开头
             if [[ $last_line =~ ^#1024 ]]; then
                 # 删除文件以"#1024"开头的最后一行
-                sed -i '$d' $file
-
-            
+                sed -i '' '$d' $file  # MMac 环境下 shell 的 sed 命令有坑，-i  后面必须加 ''
             fi
         fi
     done
@@ -36,5 +34,3 @@ delete_last_string_from_file
 
 # 恢复IFS
 IFS=$OLD_IFS 
-
-#1024#1000#1000#1000

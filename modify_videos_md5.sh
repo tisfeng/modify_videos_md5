@@ -47,5 +47,3 @@ append_string_to_file
 
 # 恢复IFS
 IFS=$OLD_IFS 
-
-#1024#1000#1000#1000

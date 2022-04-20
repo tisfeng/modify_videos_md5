@@ -1,0 +1,8 @@
+1 Linux Operating System
+2 Unix Operating System
+3 RHEL
+4 Red Hat
+5 Fedora
+6 Arch Linux
+7 CentOS
+8 Debian
