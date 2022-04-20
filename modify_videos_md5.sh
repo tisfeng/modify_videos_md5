@@ -28,7 +28,7 @@ function append_string_to_file() {
         echo $file
         if [ -f $file ]; then
             # 将文件末尾追加字符串"#1024"
-            echo "#1024" >> $file
+            echo -n "#1024" >> $file
         fi
     done
 }
