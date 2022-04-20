@@ -17,15 +17,15 @@ function remove_string_from_file() {
     for file in $(ls); do
         echo $file
         if [ -f $file ]; then
-        $(tail -n 1 $file)｜sed -i '' 's/#1024//g' 
+        
+        sed -i '' '$s/#1024//' $file 
+       
         fi
     done
 }
 
 
-
-
-delete_last_string_from_file
+remove_string_from_file
 
 # 恢复IFS
 IFS=$OLD_IFS 
