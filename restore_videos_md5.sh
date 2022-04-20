@@ -25,6 +25,8 @@ function delete_last_string_from_file() {
             if [[ $last_line =~ ^#1024 ]]; then
                 # 删除文件以"#1024"开头的最后一行
                 sed -i '' '$d' $file  # MMac 环境下 shell 的 sed 命令有坑，-i  后面必须加 ''
+                # 删除末尾的换行符
+                sed -i '' '/^$/d' $file
             fi
         fi
     done
