@@ -12,28 +12,18 @@ script_dir=$(dirname $0)
 OLD_IFS=$IFS
 IFS=$'\n'
 
-# 函数：遍历当前目录下所有文件，如果该文件不是目录，若该文件最后一行的前缀是"#1024"，则删除该行。
-function delete_last_string_from_file() {
+# 函数：遍历当前目录下所有文件，如果该文件不是目录，则删除该文件最后一行所有的"#1024"字符串。
+function remove_string_from_file() {
     for file in $(ls); do
         echo $file
         if [ -f $file ]; then
-            # 获取文件最后一行
-            last_line=$(tail -n 1 $file)
-            echo $last_line
-            
-            # 判断文件最后一行是否以"#1024"开头
-            if [[ $last_line =~ ^#1024 ]]; then
-                # 删除文件以"#1024"开头的最后一行
-                # sed -i '' '$d' $file  # MMac 环境下 shell 的 sed 命令有坑，-i  后面必须加 ''
-                # 删除末尾的换行符
-                # sed -i '' '/^$/d' $file
-
-                # 将最后一行替换为空
-                sed -i '' '$s/$/ /' $file
-            fi
+        $(tail -n 1 $file)｜sed -i '' 's/#1024//g' 
         fi
     done
 }
+
+
+
 
 delete_last_string_from_file
 
