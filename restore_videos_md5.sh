@@ -18,7 +18,7 @@ function remove_string_from_file() {
         echo $file
         if [ -f $file ]; then
         
-        sed -i '' '$s/#1024//' $file 
+        sed -i '' '$s/#1024//g' $file 
        
         fi
     done
