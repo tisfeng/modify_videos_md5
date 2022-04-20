@@ -10,13 +10,15 @@
 
 将 `modify_videos_md5.sh` 脚本放到视频文件所在的目录下，然后将该脚本拖到终端执行，即可修改该目录下所有视频文件的 md5。
 
+（另外，`restore_videos_md5.sh` 用于恢复所有该脚本所在目录下文件的md5，需与`modify_videos_md5.sh`搭配使用。）
+
 ## 原理
 
 核心代码其实就一行，在文件末尾追加字符：
 
 ```bash
 # 将字符串追加到文件末尾，例如 echo 'a' >> video.mp4
-echo $str >> $new_file_path
+echo -n "#1024" >> $file
 ```
 
 ---
