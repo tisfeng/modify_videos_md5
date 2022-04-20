@@ -26,6 +26,3 @@ echo $str >> $new_file_path
 [如何改变一段视频文件的MD5? - Yang的回答 - 知乎](https://www.zhihu.com/question/25378331/answer/80903615)
 
 
-
-#1024
-#1024

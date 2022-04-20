@@ -26,11 +26,11 @@ function append_string_to_file() {
               last_line=$(tail -n 1 $file)
                 # 判断文件最后一行是否以"#1024"开头
                 if [[ $last_line =~ ^#1024 ]]; then
-                    # 在文件最后一行后面追加字符串"#1024"
-                    echo "#1024" >> $file
+                    # 在文件最后一行后面追加字符串"#1000"，并取消末尾的回车符
+                    echo -n "#1000" >> $file
                 else
-                    # 在文件最后一行换行追加字符串"#1024"
-                    echo -e "\n#1024" >> $file # 注意：-e表示转义
+                    # 换行，在文件最后一行追加字符串"#1024"，并取消末尾的回车符
+                    echo -e -n "\n#1024" >> $file # 注意：-e表示转义
                 fi
         fi
     done
@@ -38,6 +38,6 @@ function append_string_to_file() {
 
 
 # replace_space_to_underline
-append_string
+append_string_to_file
 
 IFS=$OLD_IFS # 恢复IFS
