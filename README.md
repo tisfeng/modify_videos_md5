@@ -25,7 +25,7 @@ bash modify_videos_md5.sh
 
 PS：由于一些网盘具有秒传功能，这个的实现也是靠比对文件哈希值，因此建议只修改可能会被审查和谐的视频文件 md5，其他学习资料就不要多此一举了。。
 
-（其中 `restore_videos_md5.sh` 用于恢复所有该脚本所在目录下文件的 md5，需与 `modify_videos_md5.sh` 搭配使用。）
+（其中 `restore_videos_md5.sh` 用于恢复当前目录下所有文件的 md5，需与 `modify_videos_md5.sh` 搭配使用。）
 
 ## 原理
 
