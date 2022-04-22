@@ -36,9 +36,10 @@ function append_string_to_file_recursive() {
             append_string_to_file_recursive
             cd ..
         fi
+    done
 }
 
 append_string_to_file_recursive
 
 # 恢复IFS
-IFS=$OLD_IFS 
+IFS=$OLD_IFS
