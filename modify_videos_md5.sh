@@ -22,19 +22,23 @@ function replace_space_to_underline() {
     done
 }
 
-# 函数：遍历当前目录下所有文件，如果该文件不是目录，则在文件末尾追加字符串"#1024"。
-function append_string_to_file() {
+# 函数：递归遍历当前目录下所有文件，在文件末尾追加字符串"#1024"。
+function append_string_to_file_recursive() {
     for file in $(ls); do
         if [ -f $file ]; then
-            # 将文件末尾追加字符串"#1024"
+            echo 'file' $file
+            # 如果是文件，在文件末尾追加字符串"#1024"
             echo -n "#1024" >> $file
-            echo 'append #1024 to file: ' $file
+        elif [ -d $file ]; then
+            echo 'dir' $file
+            # 如果是目录，则递归遍历该目录下所有文件
+            cd $file
+            append_string_to_file_recursive
+            cd ..
         fi
-    done
 }
 
-# replace_space_to_underline
-append_string_to_file
+append_string_to_file_recursive
 
 # 恢复IFS
 IFS=$OLD_IFS 

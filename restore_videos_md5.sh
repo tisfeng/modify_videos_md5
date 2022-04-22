@@ -12,19 +12,25 @@ script_dir=$(dirname $0)
 OLD_IFS=$IFS
 IFS=$'\n'
 
-# 函数：遍历当前目录下所有文件，如果该文件不是目录，则删除该文件最后一行所有的"#1024"字符串。
-function remove_string_from_file() {
+# 函数：递归遍历当前目录下所有文件，删除该文件最后一行所有的"#1024"字符串。
+function remove_string_from_file_recursive() {
     for file in $(ls); do
         if [ -f $file ]; then
-        # 修复 Mac 问题 sed: RE error: illegal byte sequence
-        LC_CTYPE=C sed -i '' '$s/#1024//g' $file 
-        echo 'remove all #1024 from file: ' $file
+            echo 'file: ' $file
+            # 特意添加LC_CTYPE=C，用于修复 Mac 问题 sed: RE error: illegal byte sequence
+            LC_CTYPE=C sed -i '' '$s/#1024//g' $file
+            echo 'remove all #1024 from file: ' $file
+        else
+            echo 'dir: ' $file
+            cd $file
+            remove_string_from_file_recursive
+            cd ..
         fi
     done
 }
 
-
-remove_string_from_file
+remove_string_from_file_recursive
 
 # 恢复IFS
-IFS=$OLD_IFS 
+IFS=$OLD_IFS
+
