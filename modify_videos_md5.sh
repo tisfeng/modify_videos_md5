@@ -28,7 +28,8 @@ function append_string_to_file_recursive() {
         if [ -f $file ]; then
             echo 'file' $file
             # 如果是文件，在文件末尾追加字符串"#1024"
-            echo -n "#1024" >> $file
+            echo -n "#1024" >>$file
+            echo 'append "#1024" to file: ' $file
         elif [ -d $file ]; then
             echo 'dir' $file
             # 如果是目录，则递归遍历该目录下所有文件
