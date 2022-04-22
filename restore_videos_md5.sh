@@ -17,7 +17,9 @@ function remove_string_from_file() {
     for file in $(ls); do
         echo $file
         if [ -f $file ]; then
-        sed -i '' '$s/#1024//g' $file 
+        # 修复问题 sed: RE error: illegal byte sequence
+        # https://stackoverflow.com/questions/19242275/re-error-illegal-byte-sequence-on-mac-os-x
+        LC_CTYPE=C sed -i '' '$s/#1024//g' $file 
         fi
     done
 }
