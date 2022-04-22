@@ -15,11 +15,10 @@ IFS=$'\n'
 # 函数：遍历当前目录下所有文件，如果该文件不是目录，则删除该文件最后一行所有的"#1024"字符串。
 function remove_string_from_file() {
     for file in $(ls); do
-        echo $file
         if [ -f $file ]; then
-        # 修复问题 sed: RE error: illegal byte sequence
-        # https://stackoverflow.com/questions/19242275/re-error-illegal-byte-sequence-on-mac-os-x
+        # 修复 Mac 问题 sed: RE error: illegal byte sequence
         LC_CTYPE=C sed -i '' '$s/#1024//g' $file 
+        echo 'remove all #1024 from file: ' $file
         fi
     done
 }

@@ -25,10 +25,10 @@ function replace_space_to_underline() {
 # 函数：遍历当前目录下所有文件，如果该文件不是目录，则在文件末尾追加字符串"#1024"。
 function append_string_to_file() {
     for file in $(ls); do
-        echo $file
         if [ -f $file ]; then
             # 将文件末尾追加字符串"#1024"
             echo -n "#1024" >> $file
+            echo 'append #1024 to file: ' $file
         fi
     done
 }
