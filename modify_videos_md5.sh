@@ -40,7 +40,9 @@ function append_string_to_file_recursive() {
     done
 }
 
+echo '//====================开始批量修改文件md5==================//'
 append_string_to_file_recursive
+echo '//====================修改成功==================//'
 
 # 恢复IFS
 IFS=$OLD_IFS

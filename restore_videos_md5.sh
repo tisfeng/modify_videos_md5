@@ -29,7 +29,9 @@ function remove_string_from_file_recursive() {
     done
 }
 
+echo '//====================开始批量恢复文件md5==================//'
 remove_string_from_file_recursive
+echo '//====================恢复成功==================//'
 
 # 恢复IFS
 IFS=$OLD_IFS
