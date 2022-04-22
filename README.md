@@ -16,6 +16,13 @@
 
 **把 `modify_videos_md5.sh` 脚本放到视频文件所在的目录下，然后将该脚本拖到 `终端` 执行，即可修改该目录下所有视频文件的 md5。另外注意，该脚本可多次执行，且每次执行都会修改所有视频文件的 md5。**
 
+```bash
+# 或进入脚本所在目录，运行
+bash modify_videos_md5.sh
+```
+
+![](https://tva1.sinaimg.cn/large/e6c9d24egy1h1iuk2yvgyj218p0u0wig.jpg)
+
 PS：由于一些网盘具有秒传功能，这个的实现也是靠比对文件哈希值，因此建议只修改可能会被审查和谐的视频文件 md5，其他学习资料就不要多此一举了。。
 
 （其中 `restore_videos_md5.sh` 用于恢复所有该脚本所在目录下文件的 md5，需与 `modify_videos_md5.sh` 搭配使用。）
