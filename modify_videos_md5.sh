@@ -9,23 +9,13 @@
 OLD_IFS=$IFS
 IFS=$'\n'
 
-# 函数：将当前工作目录下所有文件名中的空格用下划线替换
-function replace_space_to_underline() {
-    for file in $(ls); do
-        echo $file
-        if [ -f $file ]; then
-            mv $file ${file// /_}
-        fi
-    done
-}
-
 # 函数：递归遍历当前工作目录下所有文件，在文件末尾追加字符串"#1024"。
 function append_string_to_file_recursive() {
     for file in $(ls); do
         if [ -f $file ]; then
             echo 'file: ' $file
             # 如果是文件，在文件末尾追加字符串"#1024"
-            echo -n "#1024" >>$file
+            echo -n "#1024" >> $file
             echo 'append "#1024" to file: ' $file
         elif [ -d $file ]; then
             echo 'dir: ' $file
