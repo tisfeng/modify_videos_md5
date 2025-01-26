@@ -21,5 +21,4 @@ Write-Output "当前工作目录为: $currentDirectory"
 # 开始批量修改文件 md5
 Write-Output "//====================开始批量修改文件 md5==================//"
 Append-StringToFile -directory $currentDirectory
-Write-Output "//====================修改成功==================//"#1024
-#1024
+Write-Output "//====================修改成功==================//"
